@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "116996491925",
+    "firebase_url": "https://instaplant-1c174.firebaseio.com",
+    "project_id": "instaplant-1c174",
+    "storage_bucket": "instaplant-1c174.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116996491925:android:dc5379e3d620eacb43e99c",
+        "android_client_info": {
+          "package_name": "com.TCi.instaplant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116996491925-6juhrrc4e2325t9jdmbmuq373r802tui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV_FGR-JeQo613_kEpk1vhm62A-tSHNkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116996491925-6juhrrc4e2325t9jdmbmuq373r802tui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
