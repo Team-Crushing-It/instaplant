@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instaplant/widgets.dart/widgets.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,105 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text('Sensor Data')),
 
       drawer: Container(
-
         width: 200,
-
-        child: Drawer(
-
-          // Add a ListView to the drawer. This ensures the user can scroll
-          // through the options in the drawer if there isn't enough vertical
-          // space to fit everything.
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-
-            padding: EdgeInsets.zero,
-
-            children: <Widget>[
-
-              DrawerHeader(
-
-                child: Text('Instaplant\n2020\n🏝', style: TextStyle(fontSize: 35),),
-
-                decoration: BoxDecoration(
-
-                  color: Colors.blue,
-
-                ),
-
-              ),
-
-              ListTile(
-
-                title: Text('All Plants'),
-
-                onTap: () {
-
-                },
-
-              ),
-              ListTile(
-
-                title: Text('Plant Overview'),
-
-                onTap: () {
-
-                },
-
-              ),
-              ListTile(
-
-                title: Text('Social'),
-
-                onTap: () {
-
-                },
-
-              ),
-              ListTile(
-
-                title: Text('Requests'),
-
-                onTap: () {
-
-                },
-
-
-              ),
-              ListTile(
-
-                title: Text('Favourties'),
-
-                onTap: () {
-
-                },
-
-              ),
-
-              ListTile(
-
-                title: Text('Layout'),
-
-                onTap: () {
-
-                },
-
-              ),
-
-              ListTile(
-
-                title: Text('About'),
-
-                onTap: () {
-
-                },
-
-              ),
-
-            ],
-
-          ),
-
-        ),
+        child: SideDrawer()
       ),
 
       body: _buildBody(context),
@@ -138,12 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
       stream: Firestore.instance.collection('sensor').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
+        
+        print('Streaming Snapshots');
 
-       for (var value in snapshot.data.documents) {
-         print(value);
-         print(value);
-         print(value);
-       }
         return _buildList(context, snapshot.data.documents);
       },
     );
@@ -160,37 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
 
     final record = Record.fromSnapshot(data);
-
-    //original
-    Widget answer = Padding(
-
-      key: ValueKey(record.name),
-
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-
-      child: Container(
-
-        decoration: BoxDecoration(
-
-          border: Border.all(color: Colors.red),
-
-          borderRadius: BorderRadius.vertical(),
-
-        ),
-
-        child: ListTile(
-
-            title: Text(record.name),
-
-            trailing: Text(record.value.toString()),
-
-            onTap: () => print(record.name)
-
-        ),
-
-      ),
-
-    );
 
     String description, value;
     Icon icon;
