@@ -62,8 +62,6 @@
 
 
 */
-
-
 import 'package:flutter/material.dart';
 
 class DataItem extends StatelessWidget {

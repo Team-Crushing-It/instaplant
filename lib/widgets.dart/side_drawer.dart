@@ -16,12 +16,17 @@ class SideDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text(
-                'Instaplant\n2020\n🏝',
-                style: TextStyle(fontSize: 35),
+              child: Column(
+                children: [
+                  Expanded(
+                   child: Image.asset('web/icons/newnewlogo.png',
+                     fit: BoxFit.fill
+                   )
+                  ),
+                ],
               ),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.black12,
               ),
             ),
             ListTile(
