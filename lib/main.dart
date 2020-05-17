@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -25,6 +26,109 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Sensor Data')),
+
+      drawer: Container(
+
+        width: 200,
+
+        child: Drawer(
+
+          // Add a ListView to the drawer. This ensures the user can scroll
+          // through the options in the drawer if there isn't enough vertical
+          // space to fit everything.
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+
+            padding: EdgeInsets.zero,
+
+            children: <Widget>[
+
+              DrawerHeader(
+
+                child: Text('Instaplant\n2020\n🏝', style: TextStyle(fontSize: 35),),
+
+                decoration: BoxDecoration(
+
+                  color: Colors.blue,
+
+                ),
+
+              ),
+
+              ListTile(
+
+                title: Text('All Plants'),
+
+                onTap: () {
+
+                },
+
+              ),
+              ListTile(
+
+                title: Text('Plant Overview'),
+
+                onTap: () {
+
+                },
+
+              ),
+              ListTile(
+
+                title: Text('Social'),
+
+                onTap: () {
+
+                },
+
+              ),
+              ListTile(
+
+                title: Text('Requests'),
+
+                onTap: () {
+
+                },
+
+
+              ),
+              ListTile(
+
+                title: Text('Favourties'),
+
+                onTap: () {
+
+                },
+
+              ),
+
+              ListTile(
+
+                title: Text('Layout'),
+
+                onTap: () {
+
+                },
+
+              ),
+
+              ListTile(
+
+                title: Text('About'),
+
+                onTap: () {
+
+                },
+
+              ),
+
+            ],
+
+          ),
+
+        ),
+      ),
+
       body: _buildBody(context),
     );
   }
@@ -35,6 +139,11 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
+       for (var value in snapshot.data.documents) {
+         print(value);
+         print(value);
+         print(value);
+       }
         return _buildList(context, snapshot.data.documents);
       },
     );
@@ -47,28 +156,216 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  /// builds a list item to be emplaced into a list
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
+
     final record = Record.fromSnapshot(data);
 
-    return Padding(
+    //original
+    Widget answer = Padding(
+
       key: ValueKey(record.name),
+
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+
       child: Container(
+
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(5.0),
+
+          border: Border.all(color: Colors.red),
+
+          borderRadius: BorderRadius.vertical(),
+
         ),
+
         child: ListTile(
-          title: Text(record.name),
-          trailing: Text(record.value.toString()),
+
+            title: Text(record.name),
+
+            trailing: Text(record.value.toString()),
+
             onTap: () => print(record.name)
+
         ),
+
       ),
+
     );
+
+    String description, value;
+    Icon icon;
+
+    switch (record.name) {
+
+      case 'pH':
+          description = 'Current Alkalinity (pH)';
+          value = record.value.toString();
+          icon = Icon(Icons.grain);
+          break;
+      case 'light':
+          description = 'Light Sensitivity';
+          value = record.value.toString() + ' lumens';
+          icon = Icon(Icons.flare);
+          break;
+      case 'humidity':
+          description = 'Humidity Level';
+          value = record.value.toString() + '%';
+          icon = Icon(Icons.cloud);
+          break;
+      case 'temperature':
+          description = 'Temperature';
+          value = record.value.toString() + ' °C';
+          icon = Icon(Icons.ac_unit);
+          break;
+      default:
+          description = record.name;
+          icon = Icon(Icons.warning);
+          value = 'N/A';
+
+    }
+
+    //cards
+    Widget card = Container (
+
+        padding: EdgeInsets.only(right: 10, left: 10, top:0, bottom: 0),
+
+        child: Card (
+
+          borderOnForeground: true,
+
+          shape: RoundedRectangleBorder(
+
+            borderRadius: BorderRadius.circular(10)
+
+          ),
+
+          child: Column(
+
+            mainAxisSize: MainAxisSize.min,
+
+            children: <Widget>[
+
+              Container(
+
+                //padding: EdgeInsets.only(left:5, right:5, top:5),
+
+                child: Row(
+
+                  children: [
+
+                    Flexible(
+
+                      flex: 2,
+
+                      child: ListTile(
+
+                        title: Text(description, style: TextStyle(fontSize: 16, ),),
+
+                        subtitle: Text(value, style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+
+                      ),
+
+                    ),
+
+                    Flexible(
+
+                      flex: 1,
+
+                      child: Container(
+
+                          decoration: ShapeDecoration(
+
+                            shape: RoundedRectangleBorder(
+
+                              borderRadius: BorderRadius.circular(10),
+
+                            ),
+
+                          ),
+
+                          padding: EdgeInsets.only(left:27, top:5 ),
+
+                          child: Center(
+
+                            child: IconButton(
+
+                              icon: icon,
+
+                              color: Colors.black,
+
+                              padding: EdgeInsets.only(left:0),
+
+                              iconSize: 60,
+
+                              onPressed: () {},
+                            ),
+
+                          ),
+
+                      )
+                    ),
+
+                  ],
+
+                ),
+
+                ),
+
+
+              ButtonBar(
+
+                buttonPadding: EdgeInsets.only(),
+
+                children: <Widget>[
+
+                  Container(
+
+                    padding: EdgeInsets.only(right: 10, bottom: 0),
+
+                    child: FlatButton(
+
+                      highlightColor: Colors.white,
+
+                      child: const Text('DETAILS'),
+
+                      padding: EdgeInsets.only(),
+
+                      shape: RoundedRectangleBorder(
+
+                        borderRadius: BorderRadius.circular(10),
+
+                      ),
+
+                      onPressed: () =>
+                      {
+
+                        print('Details were requested.')
+                      },
+
+                    ),
+
+                  ),
+
+                ],
+
+              ),
+            ],
+
+          ),
+
+        )
+
+    );
+
+    return card;
+
   }
+
 }
 
+
 class Record {
+
   final String name;
   final int value;
   final DocumentReference reference;
