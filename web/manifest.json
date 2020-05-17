@@ -1,11 +1,11 @@
 {
-    "name": "instaplant",
-    "short_name": "instaplant",
+    "name": "instaplant2",
+    "short_name": "instaplant2",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "planting 2.0",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

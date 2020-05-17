@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "116996491925",
-    "firebase_url": "https://instaplant-1c174.firebaseio.com",
-    "project_id": "instaplant-1c174",
-    "storage_bucket": "instaplant-1c174.appspot.com"
+    "project_number": "93691142368",
+    "firebase_url": "https://instaplant-429a1.firebaseio.com",
+    "project_id": "instaplant-429a1",
+    "storage_bucket": "instaplant-429a1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:116996491925:android:dc5379e3d620eacb43e99c",
+        "mobilesdk_app_id": "1:93691142368:android:a0857a19e7c9dbb1deb085",
         "android_client_info": {
-          "package_name": "com.TCi.instaplant"
+          "package_name": "com.TCi.instaplant2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "116996491925-6juhrrc4e2325t9jdmbmuq373r802tui.apps.googleusercontent.com",
+          "client_id": "93691142368-8g94gs0lqvas67cp6sc99a5m1jnlko7f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCV_FGR-JeQo613_kEpk1vhm62A-tSHNkw"
+          "current_key": "AIzaSyCRB01fZacHgE417ZdWZPD8PXt-w1r5rqU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "116996491925-6juhrrc4e2325t9jdmbmuq373r802tui.apps.googleusercontent.com",
+              "client_id": "93691142368-8g94gs0lqvas67cp6sc99a5m1jnlko7f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

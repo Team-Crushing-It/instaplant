@@ -1,6 +1,6 @@
-# instaplant
+# instaplant2
 
-A new Flutter project.
+planting 2.0
 
 ## Getting Started
 
