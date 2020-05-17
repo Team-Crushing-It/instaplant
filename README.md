@@ -13,9 +13,12 @@ Instaplant connects to sensors that measure the critical inputs and observable o
 
 We built the app with Flutter as the front-end with Google Cloud Platform serving as the backend. The RPi was programmed with python to pull data from the sensors, push images to the machine learning model and update the database.
 
-## Challenges I ran into
+## Challenges I ran into (Gene)
 
 The most challenging things is always the preparation. Give me 6 hrs to cut a tree and I will spend the first 4 sharpening the axe, said Abe Lincoln, and taking the time to learn that new program, prepare all files, running the hello worlds is what sharpening is all about. It's challenging when the timer is ticking and you seem like you have got nothing done!
+
+Challenges I ran into (Harsimrat)
+The hardest part of this project was to understand the Flutter layout given the timeframe of 24 hours. It does not have that steep of a learning curve, but it can take a while to understand the basics. We tried using the flutter BLoC library but we realised it was not necessary so I modified and created the user interface using Drawers, and Cards which are parts of the Material App library.
 
 ## Accomplishments that I'm proud of
 
