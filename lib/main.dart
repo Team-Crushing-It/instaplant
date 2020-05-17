@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Baby Names',
+      title: 'instaplant',
       home: MyHomePage(),
     );
   }
@@ -24,14 +24,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Baby Name Votes')),
+      appBar: AppBar(title: Text('Sensor Data')),
       body: _buildBody(context),
     );
   }
 
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('baby').snapshots(),
+      stream: Firestore.instance.collection('sensor').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
@@ -60,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: ListTile(
           title: Text(record.name),
-          trailing: Text(record.data.toString()),
-            //onTap: () => record.reference.updateData({'votes': FieldValue.increment(1)})
+          trailing: Text(record.value.toString()),
+            onTap: () => print(record.name)
         ),
       ),
     );
@@ -70,18 +70,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Record {
   final String name;
-  final int data;
+  final int value;
   final DocumentReference reference;
 
   Record.fromMap(Map<String, dynamic> map, {this.reference})
       : assert(map['name'] != null),
-        assert(map['data'] != null),
+        assert(map['value'] != null),
         name = map['name'],
-        data = map['data'];
+        value = map['value'];
 
   Record.fromSnapshot(DocumentSnapshot snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);
 
   @override
-  String toString() => "Record<$name:$data>";
+  String toString() => "Record<$name:$value>";
 }
