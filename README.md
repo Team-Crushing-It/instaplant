@@ -28,3 +28,13 @@ I think we are always learning this - keep it simple, stupid.
 ## What's next for instaplant
 
 The next step is to validate this product in the market. Finish this MVP, win grants and investment, and prove that plant research at the distributed consumer level is the future of our health and stability.
+
+## Screenshots
+
+![1](/web/public/1.png)
+
+![2](/web/public/2.png)
+
+![3](/web/public/3.png)
+
+![4](/web/public/4.png)
