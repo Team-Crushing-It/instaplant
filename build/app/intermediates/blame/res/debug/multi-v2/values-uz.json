@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/gene/Documents/dev/product/instaplant2/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
+            "outputFile": "/Users/gene/Documents/dev/code/instaplant/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
             "map": [
                 {
                     "source": "/Users/gene/.gradle/caches/transforms-2/files-2.1/4c0b774c09d5393feb013f0dbe753af3/play-services-base-17.0.0/res/values-uz/values.xml",
