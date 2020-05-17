@@ -43,11 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
-       for (var value in snapshot.data.documents) {
-         print(value);
-         print(value);
-         print(value);
-       }
+        print('Streambuilder Populating');
+
         return _buildList(context, snapshot.data.documents);
       },
     );
@@ -65,40 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final record = Record.fromSnapshot(data);
 
-    //original
-    Widget answer = Padding(
-
-      key: ValueKey(record.name),
-
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-
-      child: Container(
-
-        decoration: BoxDecoration(
-
-          border: Border.all(color: Colors.red),
-
-          borderRadius: BorderRadius.vertical(),
-
-        ),
-
-        child: ListTile(
-
-            title: Text(record.name),
-
-            trailing: Text(record.value.toString()),
-
-            onTap: () => print(record.name)
-
-        ),
-
-      ),
-
-    );
-
     String description, value;
     Icon icon;
 
+    
     switch (record.name) {
 
       case 'pH':
