@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       stream: Firestore.instance.collection('sensor').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
-
+        
         print('Streaming Snapshots');
 
         return _buildList(context, snapshot.data.documents);
